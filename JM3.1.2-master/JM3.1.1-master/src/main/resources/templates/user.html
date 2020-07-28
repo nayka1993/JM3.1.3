@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--header-->
+<nav class="navbar bg-dark">
+    <span class="navbar-brand text-white"><p th:text="${user.login} + ' with roles: ' + ${user.roles}"></p></span>
+    <ul class="nav justify-content-end bg-dark">
+        <li class="nav-item ">
+            <a class="nav-link" href="/logout"><span class="font-weight-normal text-white">Logout</span></a>
+        </li>
+    </ul>
+</nav>
+<br>
+
+<div class="container-fluid bg-light h-100">
+    <div class="row h-100">
+        <div class="col-sm-2 bg-white h-100">
+            <nav class="nav flex-column nav-pills">
+                <a class="nav-link active" href="#user" data-toggle="tab">User</a>
+            </nav>
+        </div>
+
+        <div class="col-sm-10 bg-light h-100">
+            <h1>User information-page</h1><br>
+            <div class="tab-content" style="border: 1px solid lightgray">
+                <div class="tab-pane fade show active" id="user">
+                    <h4 class="p-3">About User</h4>
+                    <div class="container-fluid p-4" style="background-color: #ffffff">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Login</th>
+                            <th>Role</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.lastName}"></td>
+                                <td th:text="${user.age}"></td>
+                                <td th:text="${user.login}"></td>
+                                <td th:text="${user.roles}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
